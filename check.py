@@ -66,3 +66,15 @@ def checkHaiku():
         console.print('That is a haiku!')
     else:
         console.print('That is not a haiku!')
+        if firstSyllables - 5 <= 0:
+            pass
+        else:
+            console.print(f'The first line had {firstSyllables} syllables, the first line needs 5 lines. This line has a difference of {firstSyllables - 5} syllables')
+        if secondSyllables - 7 <= 0:
+            pass
+        else:
+            console.print(f'The second line had {secondSyllables} syllables, the first line needs 5 lines. This line has a difference of {secondSyllables - 7} syllables')
+        if thirdSyllables - 5 <= 0:
+            pass
+        else:
+            console.print(f'The second line had {thirdSyllables} syllables, the first line needs 5 lines. This line has a difference of {thirdSyllables - 5} syllables')
