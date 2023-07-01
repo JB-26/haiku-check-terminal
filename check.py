@@ -1,6 +1,14 @@
 from rich.console import Console
 from rich.table import Table
-import syllables
+from datetime import datetime
+import syllables, random, string
+
+def randomword(length):
+    """
+    Generates a random word, based on the length provided
+    """
+   letters = string.ascii_lowercase
+   return ''.join(random.choice(letters) for i in range(length))
 
 
 def iteratelist(linelist, linenum):
@@ -63,7 +71,7 @@ def checkHaiku():
     console.print(f'The third line had {thirdSyllables} syllables')
 
     if firstSyllables == 5 & secondSyllables == 7 & thirdSyllables == 5:
-        console.print('That is a haiku!')
+        console.print('[bold green]That is a haiku![/bold green]')
     else:
         console.print('That is not a haiku!')
         if firstSyllables - 5 <= 0:
@@ -78,3 +86,10 @@ def checkHaiku():
             pass
         else:
             console.print(f'The second line had {thirdSyllables} syllables, the first line needs 5 lines. This line has a difference of {thirdSyllables - 5} syllables')
+
+    now = datetime.now()
+    haikuFile = (f'{now.day} - {now.month} - {now.year} - {now.hour} - {now.minute} - {randomword(5)}')
+    console.print(f'[italic yellow]Writing results to text file. File is called {haikuFile}[/italic yellow]')
+    file = open(f'{haikuFile}', 'w')
+    file.write(f"{firstLine}\n{secondLine}\n{thirdLine}\n\nThe first line had {firstSyllables} syllables\nThe second line had {secondSyllables} syllables\nThe third line had {thirdSyllables} syllables")
+    file.close()
