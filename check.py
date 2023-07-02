@@ -7,8 +7,8 @@ def randomword(length):
     """
     Generates a random word, based on the length provided
     """
-   letters = string.ascii_lowercase
-   return ''.join(random.choice(letters) for i in range(length))
+    letters = string.ascii_lowercase
+    return ''.join(random.choice(letters) for i in range(length))
 
 
 def iteratelist(linelist, linenum):
@@ -73,7 +73,7 @@ def checkHaiku():
     if firstSyllables == 5 & secondSyllables == 7 & thirdSyllables == 5:
         console.print('[bold green]That is a haiku![/bold green]')
     else:
-        console.print('That is not a haiku!')
+        console.print('[bold red]That is not a haiku![/bold red]')
         if firstSyllables - 5 <= 0:
             pass
         else:
